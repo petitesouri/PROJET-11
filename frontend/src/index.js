@@ -5,11 +5,14 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Header />
     <BrowserRouter>            
       <Routes>          
           <Route path="/" element={ <Home />} />
@@ -17,5 +20,6 @@ root.render(
           <Route path='/profile' element={ <Profile />} />
       </Routes>     
     </BrowserRouter>
+    <Footer />
   </React.StrictMode>
 );

@@ -11,15 +11,15 @@ import Footer from './Components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Header />
-    <BrowserRouter>            
+  <React.StrictMode>    
+    <BrowserRouter>  
+      <Header />          
       <Routes>          
           <Route path="/" element={ <Home />} />
           <Route path="/login" element={ <Login />} />
           <Route path='/profile' element={ <Profile />} />
-      </Routes>     
-    </BrowserRouter>
-    <Footer />
+      </Routes> 
+      <Footer />    
+    </BrowserRouter>    
   </React.StrictMode>
 );

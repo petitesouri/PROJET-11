@@ -1,8 +1,11 @@
 const Login = () => {
     return (
-        <main>
-            <h1>LOGIN</h1>
-            { /* insérer ici la modale */}
+        <main className="main bg-dark">
+            <section className="sign-in-content">
+                <i className="fa fa-user-circle sign-in-icon"></i>
+                <h1>Sign In</h1>
+                { /* insérer ici le form */}
+            </section>
         </main>
     )
 }

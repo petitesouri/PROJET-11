@@ -1,11 +1,22 @@
+// import { Provider } from "react-redux";
+// import { configureStore } from "@reduxjs/toolkit"
+// import rootReducers from "../redux/reducers/index"
+
 import "../Styles/main.css"
 import Feature from "../Components/Feature"
 import IconChat from "../assets/icon-chat.png"
 import IconMoney from "../assets/icon-money.png"
 import IconSecurity from "../assets/icon-security.png"
 
+// const store = configureStore({
+//     reducer: rootReducers,
+//     // basculer devTools: false pour la mise en production
+//     devTools: true,
+// });
+
 const Home = () => {
     return (
+        
         <main >
             <div className="hero">
                 <section className="hero-content">
@@ -36,6 +47,7 @@ const Home = () => {
                 />
             </section>
         </main>
+        
     )
 }
 

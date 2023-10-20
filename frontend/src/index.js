@@ -8,7 +8,6 @@ import Profile from './Pages/Profile';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>    
@@ -21,5 +20,5 @@ root.render(
       </Routes> 
       <Footer />    
     </BrowserRouter>    
-  </React.StrictMode>
+  </React.StrictMode> 
 );

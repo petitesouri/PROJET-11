@@ -1,9 +1,17 @@
-export const GET_POSTS = "GET_POSTS"
+export const ADD_POST = "ADD_POST" 
 
-export const getPosts= () => {
+export const addPost= (data) => {
     return (dispatch) => {
-        return fetch("http://localhost:3001/posts").then((res) => {
-            dispatch({ type: GET_POSTS, payload: res.data})
+        // return fetch("http://localhost:3001/api/v1/user/signup",{
+        return fetch("http://localhost:3001/api/v1/user/login",{
+            method: "POST",
+            body: JSON.stringify(data)
+        }
+        )
+        .then((res) => {
+            dispatch({ type: ADD_POST, payload: data})
+            console.log(res)
+            console.log(JSON.stringify(data))
         })
     }
-}  
+} 

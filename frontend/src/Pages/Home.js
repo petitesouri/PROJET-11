@@ -4,9 +4,9 @@
 
 import "../Styles/main.css"
 import Feature from "../Components/Feature"
-import IconChat from "../assets/icon-chat.png"
-import IconMoney from "../assets/icon-money.png"
-import IconSecurity from "../assets/icon-security.png"
+import IconChat from "../assets/icon-chat.webp"
+import IconMoney from "../assets/icon-money.webp"
+import IconSecurity from "../assets/icon-security.webp"
 
 // const store = configureStore({
 //     reducer: rootReducers,

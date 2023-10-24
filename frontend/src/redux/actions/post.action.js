@@ -1,16 +1,26 @@
 export const ADD_POST = "ADD_POST" 
 
 export const addPost= (data) => {
-    return (dispatch) => {
-        return fetch("http://localhost:3001/api/v1/user/login",{
+    return async (dispatch) => {
+        const req = await fetch("http://localhost:3001/api/v1/user/login",{
             method: "POST",
-            body: JSON.stringify(data)
-        }
-        )
-        .then((res) => {
-            dispatch({ type: ADD_POST, payload: data})
-            console.log(res)
-            console.log(JSON.stringify(data))
+            mode: "cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            redirect: "follow",
+            referrer: "no-referrer",
+            body: JSON.stringify(data),
         })
+
+        const response = await req.json()
+        console.log(response.body)
+        dispatch({ type: ADD_POST, payload: response.body})
+        // .then((response) => {
+        //     // dispatch({ type: ADD_POST, payload: data})
+        //     console.log(response)
+        // })
     }
 } 

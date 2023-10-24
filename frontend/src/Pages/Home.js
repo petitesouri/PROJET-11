@@ -1,22 +1,11 @@
-// import { Provider } from "react-redux";
-// import { configureStore } from "@reduxjs/toolkit"
-// import rootReducers from "../redux/reducers/index"
-
 import "../Styles/main.css"
 import Feature from "../Components/Feature"
 import IconChat from "../assets/icon-chat.webp"
 import IconMoney from "../assets/icon-money.webp"
 import IconSecurity from "../assets/icon-security.webp"
 
-// const store = configureStore({
-//     reducer: rootReducers,
-//     // basculer devTools: false pour la mise en production
-//     devTools: true,
-// });
-
-const Home = () => {
-    return (
-        
+const Home = () => {    
+    return (        
         <main >
             <div className="hero">
                 <section className="hero-content">

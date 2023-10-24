@@ -4,16 +4,15 @@ import { addPost } from "../redux/actions/post.action"
 
 const PostForm = () => {
     const form = useRef()
- //   const userName = useSelector((state) => state.userReducer)
+   // const userName = useSelector((state) => state.userReducer)
     const dispatch = useDispatch()
 
     const handleForm = e => {
         e.preventDefault()
         const postData = {
             email: form.current[0].value,
-            password: form.current[1].value, 
+            password: form.current[1].value
         }
-        console.log(JSON.stringify(postData))
         dispatch(addPost(postData))
     }
 

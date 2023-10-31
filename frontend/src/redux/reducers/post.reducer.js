@@ -1,4 +1,4 @@
-import { ADD_POST, GET_USER } from "../actions/post.action";
+import { ADD_POST, GET_USER, LOG_OUT } from "../actions/post.action";
 
 const initialState = {
     token:"",
@@ -18,8 +18,12 @@ const postReducer = (state = initialState, action) => {
                 email: action.email,
                 firstName: action.firstName,
                 lastName: action.lastName,
-                username: action.username
+                username: action.userName
             };
+        case LOG_OUT:
+            return {
+                payload: action.payload,
+            }
         default:
             return state;
     }

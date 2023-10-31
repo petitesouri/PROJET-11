@@ -1,5 +1,6 @@
 export const ADD_POST = "ADD_POST" 
 export const GET_USER = 'GET_USER'
+export const LOG_OUT = 'LOG_OUT'
 
 export const addPost= (data) => {
     return async (dispatch) => {
@@ -24,5 +25,15 @@ export const getUser = (userDatas) => {
         firstName: userDatas.firstName,
         lastName: userDatas.lastName,
         userName: userDatas.userName
+    }
+}
+
+export const logOut = ( ) => {
+    return {
+        type: LOG_OUT,
+        email: '',
+        firstName: '',
+        token: '',
+        logout: false
     }
 }

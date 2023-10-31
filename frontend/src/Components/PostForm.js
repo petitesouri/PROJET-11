@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addPost } from "../redux/actions/post.action"
 import { Navigate } from "react-router-dom"
+import User from "../Components/User"
 
 const PostForm = () => {
     const form = useRef()
@@ -18,8 +19,11 @@ const PostForm = () => {
     }
     
     if ( login===true ) {                     
-        return (      
+        return (  
+            <div>
+            <User />    
             <Navigate to="/profile" /> 
+            </div>
         )       
     }
 

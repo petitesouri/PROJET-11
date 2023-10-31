@@ -18,7 +18,7 @@ const Header = () => {
             </Link>
             <h1 className="sr-only">Argent Bank</h1>
             <NavLink to="/Login" className="main-nav-item" onClick={handleSignOut}>
-                <i className="fa fa-user-circle"></i>
+                <i className="fa fa-user-circle sign-in-icon"></i>
                     {login ? "Sign Out" : "Sign In"}
             </NavLink>
         </header>

@@ -37,12 +37,12 @@ const PostForm = () => {
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" />
             </div>
-            {/* <div className="input-remember">
+            <div className="input-remember">
                 <input type="checkbox" id="remember-me" />
                 <label htmlFor="remember-me">
                     Remember me
                 </label>
-            </div> */}
+            </div>
             <button type="submit" className="sign-in-button" value="Send">Sign In</button>                       
         </form>
     )

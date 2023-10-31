@@ -13,12 +13,12 @@ body {
   min-height: 100vh;
 }
 
-.main {
-  flex: 1;
-}
-
 .bg-dark {
   background-color: #12002b;
+  padding: 50px 0 200px 0;
+}
+.profile {
+  padding: 30px 0;
 }
 
 .sr-only {
@@ -36,6 +36,8 @@ body {
 }
 
 .main-nav {
+  height: 65px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +55,8 @@ body {
 
 .main-nav-item {
   text-decoration: none;
+  display: flex;
+  gap: 3px;
   margin-right: 0.5rem;
 }
 
@@ -79,13 +83,18 @@ body {
   position: relative;
 }
 
+.hero-content, 
+.hero-content .subtitle, 
+.hero-content .text {
+  text-align: left;
+}
+
 .hero-content {
   position: relative;
   top: 2rem;
   width: 200px;
   background: white;
   padding: 2rem;
-  text-align: left;
   margin: 0 auto;
 }
 
@@ -155,10 +164,11 @@ body {
 
 .sign-in-button {
   display: block;
-  width: 100%;
+  width: 252px;
   padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
+  text-decoration: underline;
   margin-top: 1rem;
   border-color: #00bc77;
   background-color: #00bc77;
@@ -170,12 +180,11 @@ body {
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  margin-top: 3rem;
   padding: 2rem;
 }
 
 .sign-in-icon {
-  font-size: 5rem;
+  font-size: 1.1rem;
 }
 
 .input-remember {
@@ -189,7 +198,7 @@ body {
 .input-wrapper {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  align-items: flex-start;
   margin-bottom: 1rem;
 }
 
@@ -198,6 +207,9 @@ body {
 }
 
 .input-wrapper input {
+  box-sizing: border-box;
+  width: 236px;
+  text-align: left;
   padding: 5px;
   font-size: 1.2rem;
 }
@@ -248,7 +260,9 @@ body {
 
 .account-content-wrapper {
   width: 100%;
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .edit-button {
@@ -259,7 +273,8 @@ body {
   padding: 10px;
 }
 
-.header {
+.header h2 {
+  font-size: 2em;
   color: #fff;
   margin-bottom: 2rem;
 }

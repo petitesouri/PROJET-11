@@ -1,19 +1,22 @@
 import { useSelector } from "react-redux"
 import Account from "../Components/Account"
+import Button from "../Components/Edit-button"
 
 const Profile = () => {
     const firstName = useSelector(state => state.postReducer.firstName)
     const lastName = useSelector(state => state.postReducer.lastName)
+
+    const handleEditName = () => {
+      console.log("Edit Name")
+    }
    
-// Modifier le H1 ( font size 2em, etc consultable dans la console)
     return (
         <main className="main bg-dark profile">
 
         <div className="header">
           <h2>Welcome back<br />{firstName} {lastName} !</h2>
-          {/* En faire un composant "Bouton"
-          <button className="edit-button">Edit Name</button>
-          */}
+          < Button onClick={ handleEditName}
+            text="Edit Name"/>
         </div>
           
         {/* last */}

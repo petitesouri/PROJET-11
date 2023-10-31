@@ -7,6 +7,7 @@ import Login from './Pages/Login';
 import Profile from './Pages/Profile';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import Error from './Pages/Error';
 
 // REDUX
 import { Provider } from "react-redux";
@@ -29,6 +30,7 @@ root.render(
           <Route path="/" element={ <Home />} />
           <Route path="/login" element={ <Login />} />
           <Route path='/profile' element={ <Profile />} />
+          <Route path='*' element={ <Error />} />
       </Routes> 
       <Footer />    
     </BrowserRouter>

@@ -56,7 +56,7 @@ body {
 .main-nav-item {
   text-decoration: none;
   display: flex;
-  gap: 3px;
+  gap: 0.35rem;
   margin-right: 0.5rem;
 }
 
@@ -240,7 +240,25 @@ body {
   text-align: left;
   margin-bottom: 2rem;
 }
+/** Mode Edit **/ 
+.account.edit {
+  background-color: black;
+  border-radius: 10px;
+}
+.account-content-wrapper.edit {
+  background-color: black;
+  display: flex;
+  gap: 10px;
+}
+.account-title.edit, .account-amount.edit, .account-amount-description.edit {
+  color: white;
+  font-weight: 300;
+}
+.transaction-icon {
+  width: 70px;
+}
 
+/** Fin du mode Edit **/
 .account-amount {
   margin: 0;
   font-size: 2.5rem;
@@ -273,10 +291,60 @@ body {
   padding: 10px;
 }
 
+.header {
+  margin-bottom: 2rem;
+}
+
 .header h2 {
   font-size: 2em;
   color: #fff;
-  margin-bottom: 2rem;
+}
+
+.header-edit {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+.header-edit h2 {
+  color: black;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.header-edit form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: auto;
+}
+
+.header-edit__textarea input {
+  width: 100px;
+  height: 20px;
+  border-radius: 3px;
+  border: grey 1px solid;
+}
+.header-edit__textarea input:disabled {
+  background-color: lightgrey;
+}
+
+.header-edit__textarea label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.header-edit__buttons {
+  display: flex;
+  gap: 10px;
+  margin: 20px auto 10px auto;
+}
+.edit-button {
+  width: 125px;
+  border-radius: 3px;
 }
 
 .transaction-button {

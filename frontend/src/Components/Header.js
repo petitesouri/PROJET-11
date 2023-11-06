@@ -31,12 +31,6 @@ const Header = () => {
                     Sign In
                 </NavLink>
             )}
-            {/* <NavLink to="/Login" className="main-nav-item" onClick={handleSignOut}>
-                <i className="fa fa-user-circle sign-in-icon"></i>
-                {firstName}
-                    // <i className="fa fa-user-circle sign-in-icon"></i>
-                    {login ? "Sign Out" : "Sign In"}
-            </NavLink> */}
         </header>
     )
 }

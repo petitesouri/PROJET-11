@@ -1,5 +1,7 @@
 export const ADD_POST = "ADD_POST" 
 export const GET_USER = 'GET_USER'
+export const EDIT_MODE = 'EDIT_MODE'
+export const EDIT_USER = 'EDIT_USER'
 export const LOG_OUT = 'LOG_OUT'
 
 export const addPost= (data) => {
@@ -16,7 +18,7 @@ export const addPost= (data) => {
             dispatch({ type: ADD_POST, payload: response.body, login:true})
         }
     }
-} 
+}
 
 export const getUser = (userDatas) => {
     return {
@@ -24,6 +26,19 @@ export const getUser = (userDatas) => {
         email: userDatas.email,
         firstName: userDatas.firstName,
         lastName: userDatas.lastName,
+        userName: userDatas.userName
+    }
+}
+export const editMode = (dispatch) => {
+    return {
+        type: EDIT_MODE,
+        editMode: dispatch.payload,
+    }
+}
+
+export const editUser = (userDatas) => {
+    return {
+        type: EDIT_USER,
         userName: userDatas.userName
     }
 }

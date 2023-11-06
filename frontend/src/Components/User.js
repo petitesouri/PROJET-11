@@ -1,28 +1,56 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { GET_USER } from '../redux/actions/post.action';
+import { Navigate } from 'react-router-dom';
 
-const User = () => {
-    const token = useSelector(state => state.postReducer.token.token)
+export const POST = 'POST'
+// export const PUT = 'PUT'
+
+
+function User({ method, token }) {
     const dispatch = useDispatch()
+    token = useSelector(state => state.postReducer.token.token) 
+    
+    
+    // const newValue = {
+    //     userName: useSelector(state => state.postReducer.userName)
+    // }
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:3001/api/v1/user/profile",{
+        switch (method) {
+            case POST:
+                const responsePost = await fetch("http://localhost:3001/api/v1/user/profile", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    },
-                });
-        const datas = await response.json();
-        
-        dispatch({ 
-            type: GET_USER, 
-            email: datas.body.email, 
-            firstName: datas.body.firstName, 
-            lastName: datas.body.lastName, 
-            userName: datas.body.userName})
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                const datasUser = await responsePost.json();
+                dispatch({ 
+                    type: GET_USER, 
+                    email: datasUser.body.email, 
+                    firstName: datasUser.body.firstName, 
+                    lastName: datasUser.body.lastName, 
+                    userName: datasUser.body.userName
+                })
+                return datasUser;
+            // case PUT:
+            //     const responsePut = await fetch("http://localhost:3001/api/v1/user/profile", {
+            //         method: "PUT",
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //             "Authorization": `Bearer ${token}`
+            //         },
+            //         body: JSON.stringify(newValue),
+            //     })
+            //     const editDatas = await responsePut.json();
+            //     return editDatas;
+
+            default: 
+                return ( <Navigate to="/" /> )
+        }
     }
-    fetchData();  
-} 
+    fetchData()
+}
 
 export default User;

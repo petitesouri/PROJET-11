@@ -17,16 +17,16 @@ const PostForm = () => {
         }
         dispatch(addPost(postData))
     }
-    
-    if ( login===true ) {                     
+
+    if ( login===true ) {                
         return (  
             <div>
-            <User />    
+            <User method="POST" />    
             <Navigate to="/profile" /> 
             </div>
         )       
     }
-
+    
     return (        
         <form ref={form} onSubmit={e => handleForm(e)} >
             <div className="input-wrapper">

@@ -27,6 +27,8 @@ const Profile = () => {
   const handleSave = (e) => {
     e.preventDefault()
     fetchData( PUT, { userName: inputValue } )
+    dispatch({type: EDIT_MODE, 
+      payload: false})
   }
   
   return ( 

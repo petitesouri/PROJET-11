@@ -1,9 +1,9 @@
-// import { ADD_POST, EDIT_USER, EDIT_MODE, GET_USER, LOG_OUT } from "../actions/post.action";
-import { ADD_POST, GET_USER, LOG_OUT } from "../actions/post.action";
+import { ADD_POST, GET_USER, LOG_OUT, LOGIN_FAILED } from "../actions/post.action";
 
 const initialState = {
     token: "",
     login: false,
+    errorMessage: null,
 }
 
 const postReducer = (state = initialState, action) => {
@@ -21,16 +21,11 @@ const postReducer = (state = initialState, action) => {
                 lastName: action.lastName,
                 userName: action.userName,
             };
-        // case EDIT_MODE:
-        //     return {
-        //         ...state,
-        //         editMode: action.payload,
-        //     }
-        // case EDIT_USER:
-        //     return {
-        //         ...state,
-        //         userName: action.userName,
-        //     }
+        case LOGIN_FAILED:
+            return {
+                ...state,
+                errorMessage: action.errorMessage,
+            }
         case LOG_OUT:
             return {
                 payload: action.payload,

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { addPost } from "../redux/actions/post.action"
+import { addPost, loginFailed } from "../redux/actions/post.action"
 import { useUser, POST } from "../Components/useUser"
 
 const PostForm = () => {
@@ -17,14 +17,18 @@ const PostForm = () => {
             email: form.current[0].value,
             password: form.current[1].value
         }
-        dispatch(addPost(postData))  
+        try {
+            dispatch(addPost(postData))
+        } catch (error) {
+            dispatch(loginFailed())
+        } 
     }
-
+    
     useEffect(() => {
-        if (login) {          
+        if ( login === true) {          
             fetchData(POST)
             navigate('/profile')
-        }
+        } 
     },[login])
     
     return (        

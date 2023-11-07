@@ -1,8 +1,7 @@
 export const ADD_POST = "ADD_POST" 
 export const GET_USER = 'GET_USER'
-// export const EDIT_MODE = 'EDIT_MODE'
-// export const EDIT_USER = 'EDIT_USER'
 export const LOG_OUT = 'LOG_OUT'
+export const LOGIN_FAILED = 'LOGIN_FAILED'
 
 export const addPost= (data) => {
     return async (dispatch) => {
@@ -18,25 +17,12 @@ export const addPost= (data) => {
                 const response = await req.json()
                 dispatch({ type: ADD_POST, token: response.body.token, login:true })
             } else {
-                console.log("Error")
+                dispatch(loginFailed("wrong login credentials"))
             } 
         } catch {
-            console.log("Error ++")
+            dispatch(loginFailed("Connexion error"))
         }
     }
-    // return async (dispatch) => {        
-    //     const req = await fetch("http://localhost:3001/api/v1/user/login",{
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(data),
-    //     })
-    //     const response = await req.json()
-    //     if ( response.status === 200 ) {
-    //         dispatch({ type: ADD_POST, payload: response.body, login:true})
-    //     }
-    // }
 }
 
 export const getUser = (userDatas) => {
@@ -48,19 +34,6 @@ export const getUser = (userDatas) => {
         userName: userDatas.userName
     }
 }
-// export const editMode = (dispatch) => {
-//     return {
-//         type: EDIT_MODE,
-//         editMode: dispatch.payload,
-//     }
-// }
-
-// export const editUser = (userDatas) => {
-//     return {
-//         type: EDIT_USER,
-//         userName: userDatas.userName
-//     }
-// }
 
 export const logOut = ( ) => {
     return {
@@ -69,5 +42,12 @@ export const logOut = ( ) => {
         firstName: '',
         token: '',
         logout: false
+    }
+}
+
+export const loginFailed = (errorMessage) => {
+    return {
+        type: LOGIN_FAILED,
+        errorMessage
     }
 }

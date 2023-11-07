@@ -8,6 +8,7 @@ import Profile from './Pages/Profile';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Error from './Pages/Error';
+import PrivateRoute from "../src/Components/PrivateRoute"
 
 // REDUX
 import { Provider } from "react-redux";
@@ -29,7 +30,10 @@ root.render(
       <Routes>          
           <Route path="/" element={ <Home />} />
           <Route path="/login" element={ <Login />} />
-          <Route path='/profile' element={ <Profile />} />
+          <Route 
+            path='/profile' 
+            element={ <PrivateRoute element={<Profile />} />} 
+          />
           <Route path='*' element={ <Error />} />
       </Routes> 
       <Footer />    

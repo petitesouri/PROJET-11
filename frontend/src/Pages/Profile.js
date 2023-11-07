@@ -1,61 +1,41 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useRef } from "react"
-import { EDIT_MODE, EDIT_USER } from "../redux/actions/post.action";
-
 import Account from "../Components/Account"
+import { useUser, PUT } from "../Components/useUser"
+import { EDIT_MODE } from "../redux/actions/edit.action";
 
 const Profile = () => {
+  const dispatch = useDispatch()
+  const { fetchData } = useUser()
   const firstName = useSelector(state => state.postReducer.firstName);
   const lastName = useSelector(state => state.postReducer.lastName);
   const userName = useSelector(state => state.postReducer.userName);
-  const editModeUser = useSelector(state => state.postReducer.editMode);
-
+  const editModeUser = useSelector(state => state.editReducer.editMode);
   const form = useRef()
-  const [ value, setValue ] = useState("")
-  const dispatch = useDispatch()
-  const token = useSelector(state => state.postReducer.token.token)
+  const [ inputValue, setinputValue ] = useState(userName || '')
 
-  const newValue = {
-    userName: value,
-  }
-
-  function sendData() {
-      fetch("http://localhost:3001/api/v1/user/profile", {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify(newValue),
-    })
-  }
-  
-  const handleEditName = () => {
+  const handleEdit = () => {
     dispatch({type: EDIT_MODE, 
       payload: true})
   }
 
-  const handleChangeEditName = (e) => {
+  const handleCancel = (e) => {
     e.preventDefault()
-    setValue(form.current[0].value) 
-    dispatch({type: EDIT_USER, 
-      userName: form.current[0].value})    
+    setinputValue(userName)
   }
 
-  const handleCancelEditName = (e) => {
+  const handleSave = (e) => {
     e.preventDefault()
-    setValue("")
-    dispatch({type: EDIT_MODE, 
-      payload: false}) 
+    fetchData( PUT, { userName: inputValue } )
   }
   
   return ( 
-    <main className={!editModeUser ? "main bg-dark profile" : "main bg-light profile"} >
+    <main className={!editModeUser ? "main bg-dark profile" : "main bg-light profile"}>
       { !editModeUser ? ( 
         <>       
           <div className="header">
             <h2>Welcome back<br />{firstName} {lastName} !</h2>
-            < button className="edit-button" onClick={ handleEditName }>Edit Name</button>
+            < button className="edit-button" onClick={ handleEdit }>Edit Name</button>
           </div>
           <h3 className="sr-only">Accounts</h3>
         </>
@@ -68,8 +48,8 @@ const Profile = () => {
                 <input  id="userName" 
                         type="text" 
                         placeholder={userName} 
-                        value={value} 
-                        onChange={ e => handleChangeEditName(e)}/>
+                        value={inputValue} 
+                        onChange={(e) => setinputValue(e.target.value)}/>
               </div>
               <div className="header-edit__textarea">
                 <label htmlFor="first-name">First name:</label>
@@ -80,8 +60,8 @@ const Profile = () => {
                 <input id="lastName" type="text" placeholder={lastName}  disabled={true}/>
               </div>
               <div className="header-edit__buttons">
-                <button className="edit-button" onClick={sendData}> Save </button>
-                <button className="edit-button" onClick={ e => handleCancelEditName (e)}> Cancel </button>
+                <button className="edit-button" onClick={ handleSave }> Save </button>
+                <button className="edit-button" onClick={ handleCancel }> Cancel </button>
               </div>
             </form>
           </div>       

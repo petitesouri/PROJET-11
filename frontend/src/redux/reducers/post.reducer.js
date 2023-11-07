@@ -1,18 +1,17 @@
-import { ADD_POST, EDIT_USER, EDIT_MODE, GET_USER, LOG_OUT } from "../actions/post.action";
+// import { ADD_POST, EDIT_USER, EDIT_MODE, GET_USER, LOG_OUT } from "../actions/post.action";
+import { ADD_POST, GET_USER, LOG_OUT } from "../actions/post.action";
 
 const initialState = {
-    token:"",
-    userName:"",
-    editMode: false,
+    token: "",
+    login: false,
 }
 
 const postReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             return {
-                ...state,
-                token: action.payload,
-                login: true
+                token: action.token,
+                login: action.login,
             };
         case GET_USER:
             return {
@@ -22,16 +21,16 @@ const postReducer = (state = initialState, action) => {
                 lastName: action.lastName,
                 userName: action.userName,
             };
-        case EDIT_MODE:
-            return {
-                ...state,
-                editMode: action.payload,
-            }
-        case EDIT_USER:
-            return {
-                ...state,
-                userName: action.userName,
-            }
+        // case EDIT_MODE:
+        //     return {
+        //         ...state,
+        //         editMode: action.payload,
+        //     }
+        // case EDIT_USER:
+        //     return {
+        //         ...state,
+        //         userName: action.userName,
+        //     }
         case LOG_OUT:
             return {
                 payload: action.payload,

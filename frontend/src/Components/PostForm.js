@@ -1,34 +1,35 @@
-import React, { useRef } from "react"
+import { useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { addPost } from "../redux/actions/post.action"
-import { Navigate } from "react-router-dom"
-import User from "../Components/User"
+import { useUser, POST } from "../Components/useUser"
 
 const PostForm = () => {
     const form = useRef()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { fetchData } = useUser()
     const login = useSelector(state => state.postReducer.login)
     
-    const handleForm = e => {
+    const handleForm = async (e) => {
         e.preventDefault()
         const postData = {
             email: form.current[0].value,
             password: form.current[1].value
         }
-        dispatch(addPost(postData))
+        dispatch(addPost(postData))  
     }
 
-    if ( login===true ) {                
-        return (  
-            <div>
-            <User method="POST" />    
-            <Navigate to="/profile" /> 
-            </div>
-        )       
-    }
+    useEffect(() => {
+        if (login) {          
+            fetchData(POST)
+            navigate('/profile')
+        }
+    },[login])
     
     return (        
-        <form ref={form} onSubmit={e => handleForm(e)} >
+        <>
+        <form ref={form} onSubmit={handleForm} >
             <div className="input-wrapper">
                 <label htmlFor="username">Username</label>
                 <input type="text" id="username" />
@@ -45,6 +46,7 @@ const PostForm = () => {
             </div>
             <button type="submit" className="sign-in-button" value="Send">Sign In</button>                       
         </form>
+        </>
     )
 }
 

@@ -1,293 +1,31 @@
+/* Reset CSS */
 * {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: 0;
+  padding: 0;
 }
 
+/* Main Styling */
 body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
 }
-
-.bg-dark {
-  background-color: #12002b;
-  padding: 50px 0 200px 0;
+.bg-dark, 
+.main-nav, .main-nav-bar, .main-nav-item, 
+.main-nav-logo, .features, .input-remember,
+.input-wrapper, .bg-light.profile, .header-edit form,
+.header-edit__buttons, .footer, .account,
+.account-content-wrapper, .account-content-wrapper.edit {
+  display: flex; 
 }
-.profile {
-  padding: 30px 0;
-}
-
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
-}
-
-.main-nav {
-  height: 65px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 20px;
-}
-
-.main-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-.main-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-.main-nav-item {
-  text-decoration: none;
-  display: flex;
-  gap: 0.35rem;
-  margin-right: 0.5rem;
-}
-
-.main-nav-item:hover {
-  text-decoration: underline;
-}
-
-.main-nav-logo {
-  display: flex;
-  align-items: center;
-}
-
-.main-nav-logo-image {
-  max-width: 100%;
-  width: 200px;
-}
-
-.hero {
-  background-image: url('../assets/bank-tree.webp');
-  background-position: 0 -50px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 300px;
-  position: relative;
-}
-
-.hero-content, 
-.hero-content .subtitle, 
-.hero-content .text {
-  text-align: left;
-}
-
-.hero-content {
-  position: relative;
-  top: 2rem;
-  width: 200px;
-  background: white;
-  padding: 2rem;
-  margin: 0 auto;
-}
-
-.hero-content .subtitle {
-  font-weight: bold;
-  font-size: 1rem;
-  margin: 0;
-}
-
-.hero-content .text {
-  margin-bottom: 0;
-  font-size: 0.9rem;
-}
-
-@media (min-width: 920px) {
-  .hero {
-    height: 400px;
-    background-position: 0% 33%;
-  }
-
-  .hero-content {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 300px;
-    margin: 2rem;
-  }
-
-  .hero-content .subtitle {
-    font-size: 1.5rem;
-  }
-
-  .hero-content .text {
-    font-size: 1.2rem;
-  }
-}
-
-.features {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 920px) {
-  .features {
-    flex-direction: row;
-  }
-}
-
-.feature-icon {
-  width: 100px;
-  border: 10px solid #00bc77;
-  border-radius: 50%;
-  padding: 1rem;
-}
-
-.feature-item {
-  flex: 1;
-  padding: 2.5rem;
-}
-
-.feature-item-title {
-  color: #222;
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.sign-in-button {
-  display: block;
-  width: 252px;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: underline;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-}
-
-.sign-in-content {
-  box-sizing: border-box;
-  background-color: white;
-  width: 300px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.sign-in-icon {
-  font-size: 1.1rem;
-}
-
-.error-message {
-  color: red;
-  font-size: 16px;
-}
-
-.input-remember {
-  display: flex;
-}
-
-.input-remember label {
-  margin-left: 0.25rem;
-}
-
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-.input-wrapper label {
-  font-weight: bold;
-}
-
-.input-wrapper input {
-  box-sizing: border-box;
-  width: 236px;
-  text-align: left;
-  padding: 5px;
-  font-size: 1.2rem;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  border-top: 2px solid #ccc;
-  padding: 2rem 0 1.5rem;
-}
-
-.footer-text {
-  margin: 0;
-  padding: 0;
-}
-
-.account {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  background-color: #fff;
-  width: 80%;
-  margin: 0 auto;
-  flex-direction: column;
-  padding: 1.5rem;
-  box-sizing: border-box;
-  text-align: left;
-  margin-bottom: 2rem;
-}
-/** Mode Edit **/ 
-.account.edit {
-  background-color: black;
-  border-radius: 10px;
-}
-.account-content-wrapper.edit {
-  background-color: black;
-  display: flex;
-  gap: 10px;
-}
-.account-title.edit, .account-amount.edit, .account-amount-description.edit {
-  color: white;
-  font-weight: 300;
-}
-.transaction-icon {
-  width: 70px;
-}
-
-/** Fin du mode Edit **/
-.account-amount {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.account-amount-description {
-  margin: 0;
-}
-
-.account-title {
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: normal;
-}
-
+.bg-dark, .features, .input-wrapper,
+.bg-light.profile, .header-edit form, .account,
 .account-content-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: column;  
 }
-
 .edit-button {
   border-color: #00bc77;
   background-color: #00bc77;
@@ -296,65 +34,209 @@ body {
   padding: 10px;
 }
 
-.header {
-  margin-bottom: 2rem;
+/* Header */
+.main-nav {
+  height: 65px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+.main-nav-item {
+  font-weight: bold;
+  color: #2c3e50;
+  text-decoration: none;
+  gap: 0.28rem;
+  margin-right: 0.5rem;
+}
+.main-nav-item.active{
+  gap: 0.56rem;
+}
+a.main-nav-item:hover  {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.main-nav-logo-image {
+  max-width: 100%;
+  width: 200px;
 }
 
-.header h2 {
-  font-size: 2em;
-  color: #fff;
+/* Home page */
+.hero {
+  height: 300px;
+  background-image: url('../assets/bank-tree.webp');  
+  background-size: cover;
 }
-
-.header-edit {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1rem;
+.hero-content,
+.hero-content .subtitle,
+.hero-content .text {
+  text-align: left;
 }
-
-.header-edit h2 {
-  color: black;
-  font-size: 26px;
-  font-weight: 300;
-}
-
-.header-edit form {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.hero-content {
+  top: 2rem;
+  position: relative;
+  width: 200px;
+  background: white;
+  padding: 2rem;
   margin: auto;
 }
-
-.header-edit__textarea input {
+.hero-content .subtitle {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0;
+}
+.hero-content .text {
+  margin-bottom: 0;
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+}
+@media (min-width: 920px) {
+  .hero {
+    height: 400px;
+  }
+  .hero-content {
+    width: 300px;
+    margin: 2rem;
+    position: absolute;
+    top: 8rem;
+    right: 4.24rem;
+  }
+  .hero-content .subtitle {
+    font-size: 1.5rem;
+  }
+  .hero-content .text {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 920px) {
+  .features {
+    flex-direction: row;
+  }
+}
+.feature-icon {
   width: 100px;
-  height: 20px;
-  border-radius: 3px;
-  border: grey 1px solid;
+  border: 10px solid #00bc77;
+  border-radius: 50%;
+  padding: 1rem;
 }
-.header-edit__textarea input:disabled {
-  background-color: lightgrey;
+.feature-item {
+  flex: 1;
+  padding: 2.5rem;
 }
-
-.header-edit__textarea label {
-  font-size: 12px;
-  font-weight: 500;
-  margin-right: 5px;
-}
-
-.header-edit__buttons {
-  display: flex;
-  gap: 10px;
-  margin: 20px auto 10px auto;
-}
-.edit-button {
-  width: 125px;
-  border-radius: 3px;
+.feature-item-title {
+  color: #222;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.transaction-button {
+/* Profile Page and Login Page */
+.bg-dark {
+  background-color: #12002b;
+  gap: 2rem;
+  padding-top: 3rem;
+  min-height: 75vh;
+}
+
+/* Login Page */
+.sign-in-button {
   display: block;
   width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 1rem;
+  border: none;
+  background-color: #00bc77;
+  color: #fff;
+}
+.sign-in-content {
+  box-sizing: border-box;
+  background-color: white;
+  width: 300px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.sign-in-icon {
+  font-size: inherit;
+}
+.sign-in-content__title {
+  margin: 1.245rem auto;
+}
+.error-message {
+  color: red;
+  font-size: 1rem;
+}
+.input-remember label {
+  margin-left: 0.25rem;
+}
+.input-wrapper {
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.input-wrapper label {
+  font-weight: bold;
+}
+.input-wrapper input {
+  box-sizing: border-box;
+  width: 236px;
+  text-align: left;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+/* Profile Page */
+.bg-dark.profile {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+.account {
+  border: 1px solid black;
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;  
+  padding: 1.5rem;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+.account.edit {
+  width: 95%;
+  background-color: black;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.account-content-wrapper {
+  align-items: flex-start;
+}
+.account-content-wrapper.edit {
+  background-color: black;
+  gap: 10px;
+}
+.account.edit .account-content-wrapper.cta {
+  align-items: end; 
+}
+.account-title {
+  font-size: 1rem;
+  font-weight: normal;
+}
+.account-amount {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.account-title.edit,
+.account-amount.edit,
+.account-amount-description.edit {
+  color: white;
+  font-weight: 300;
+}
+.transaction-icon {
+  width: 70px;
+}
+.transaction-button {
+  width: 100%;
+  display: block;
   padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -367,13 +249,69 @@ body {
 @media (min-width: 720px) {
   .account {
     flex-direction: row;
+    align-items: center;
   }
 
   .account-content-wrapper.cta {
-    flex: 0;
-  }
-
-  .transaction-button {
     width: 200px;
   }
+}
+
+/* Edit stiling */
+.bg-light.profile {
+  gap: 15px;
+}
+.header h2 {
+  font-size: 2em;
+  color: #fff;
+  padding: 1.34rem 0;
+}
+.header-edit h2 {
+  color: black;
+  font-size: 26px;
+  font-weight: 300;
+}
+.header-edit form {
+  width: 34%;
+  gap: 0.5rem;
+  margin: 0.25rem auto;
+}
+.header-edit__textarea input {
+  width: 6.25rem;
+  height: 20px;
+  text-align: justify;
+  padding: 2px;
+  border-radius: 3px;
+  border: grey 1px solid;
+}
+.header-edit__textarea {
+  width: 70%;
+  margin: auto;
+}
+.header-edit__textarea input:disabled {
+  background-color: lightgrey;
+}
+.header-edit__textarea label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+.header-edit__buttons {
+  width: 50%;
+  gap: 10px;
+  margin: 25px auto 0 auto;
+}
+.header-edit__buttons .edit-button {
+  width: 75%;
+}
+
+/* Footer */
+.footer {
+  justify-content: center;
+  border-top: 2px solid #ccc;
+  padding: 2rem 0 1.5rem;
+}
+.footer-text {
+  margin: 0;
+  padding: 0;
 }

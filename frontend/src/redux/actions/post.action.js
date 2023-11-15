@@ -2,6 +2,7 @@ export const ADD_POST = "ADD_POST"
 export const GET_USER = 'GET_USER'
 export const LOG_OUT = 'LOG_OUT'
 export const LOGIN_FAILED = 'LOGIN_FAILED'
+export const EDIT_MODE = 'EDIT_MODE'
 
 export const addPost= (data) => {
     return async (dispatch) => {
@@ -32,6 +33,13 @@ export const getUser = (userDatas) => {
         firstName: userDatas.firstName,
         lastName: userDatas.lastName,
         userName: userDatas.userName
+    }
+}
+
+export const editMode = (dispatch) => {
+    return {
+        type: EDIT_MODE,
+        editMode: dispatch.payload,
     }
 }
 

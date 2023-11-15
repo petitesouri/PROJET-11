@@ -8,18 +8,18 @@ const Home = () => {
     return (        
         <main >
             <div className="hero">
+                <h2 className="sr-only">Promoted Content</h2>
                 <section className="hero-content">
-                    <h2 className="sr-only">Promoted Content</h2>
-                    <p className="subtitle"> 
+                    <h3 className="subtitle"> 
                         No fees.<br/>
                         No minimum deposit.<br/>
                         High interest rates.
-                    </p>
+                    </h3>
                     <p className="text">Open a savings account with Argent Bank today!</p>
                 </section>
             </div>            
             <section className="features">
-                <h2 className="sr-only">Features</h2>
+                <h2 className="sr-only">Features</h2>                
                 <Feature    icon={IconChat} 
                             title="You are our #1 priority" 
                             description="Need to talk to a representative? You can get in touch through our

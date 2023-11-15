@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useState, useRef } from "react"
 import Account from "../Components/Account"
 import { useUser, PUT } from "../Components/useUser"
-import { EDIT_MODE } from "../redux/actions/edit.action";
+import { EDIT_MODE } from "../redux/actions/post.action";
 
 const Profile = () => {
   const dispatch = useDispatch()
@@ -10,7 +10,7 @@ const Profile = () => {
   const firstName = useSelector(state => state.postReducer.firstName);
   const lastName = useSelector(state => state.postReducer.lastName);
   const userName = useSelector(state => state.postReducer.userName);
-  const editModeUser = useSelector(state => state.editReducer.editMode);
+  const editModeUser = useSelector(state => state.postReducer.editMode);
   const form = useRef()
   const [ inputValue, setinputValue ] = useState(userName || '')
 
@@ -21,6 +21,8 @@ const Profile = () => {
 
   const handleCancel = (e) => {
     e.preventDefault()
+    dispatch({type: EDIT_MODE, 
+      payload: false})
     setinputValue(userName)
   }
 
@@ -46,20 +48,29 @@ const Profile = () => {
             <h2>Edit user info</h2>
             <form ref={form}>
               <div className="header-edit__textarea">
-                <label htmlFor="user-name">User name:</label>
+                <label htmlFor="userName">User name:</label>
                 <input  id="userName" 
                         type="text" 
                         placeholder={userName} 
                         value={inputValue} 
-                        onChange={(e) => setinputValue(e.target.value)}/>
+                        onChange={(e) => setinputValue(e.target.value)}
+                        autoComplete="on" />
               </div>
               <div className="header-edit__textarea">
-                <label htmlFor="first-name">First name:</label>
-                <input id="firstName" type="text" placeholder={firstName}  disabled={true}/>
+                <label htmlFor="firstName">First name:</label>
+                <input  id="firstName" 
+                        type="text" 
+                        placeholder={firstName} 
+                        autoComplete="on" 
+                        disabled={true} />
               </div>
               <div className="header-edit__textarea">
-                <label htmlFor="last-name">Last name:</label>
-                <input id="lastName" type="text" placeholder={lastName}  disabled={true}/>
+                <label htmlFor="lastName">Last name:</label>
+                <input  id="lastName" 
+                        type="text" 
+                        placeholder={lastName} 
+                        autoComplete="on" 
+                        disabled={true} />
               </div>
               <div className="header-edit__buttons">
                 <button className="edit-button" onClick={ handleSave }> Save </button>

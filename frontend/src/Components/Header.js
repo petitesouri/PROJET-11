@@ -19,12 +19,16 @@ const Header = () => {
             </Link>
             <h1 className="sr-only">Argent Bank</h1>
             { login ? (
-                <NavLink to="/" className="main-nav-item" onClick={handleSignOut}>
+                <div className="main-nav-bar">
+                <NavLink to="/profile" className="main-nav-item" >
                     <i className="fa fa-user-circle sign-in-icon"></i>
                     {firstName}
+                </NavLink>
+                <NavLink to="/" className="main-nav-item" onClick={handleSignOut}>
                     <i className="fa fa-sign-out"></i>
                     Sign Out
                 </NavLink>
+                </div>
             ) : (
                 <NavLink to="/Login" className="main-nav-item">
                     <i className="fa fa-user-circle sign-in-icon"></i>

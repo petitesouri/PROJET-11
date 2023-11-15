@@ -10,7 +10,7 @@ export function useUser() {
 
     const fetchData = async (method, data) => {
             const req = await fetch("http://localhost:3001/api/v1/user/profile", {
-                method: method,
+                method,
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`
@@ -26,12 +26,12 @@ export function useUser() {
                     firstName: response.body.firstName, 
                     lastName: response.body.lastName, 
                     userName: response.body.userName
-                });               
-            } else {
-                throw new Error("Erreur lors de la requête fetch");
-            }   
+                }); 
+                return              
+            } 
+            throw new Error("Erreur lors de la requête fetch");
+              
     }
-
     return {
         fetchData
     };

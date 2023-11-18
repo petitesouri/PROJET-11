@@ -1,4 +1,4 @@
-import "../Styles/main.css"
+import "../Styles/main.min.css"
 import Feature from "../Components/Feature"
 import IconChat from "../assets/icon-chat.webp"
 import IconMoney from "../assets/icon-money.webp"
